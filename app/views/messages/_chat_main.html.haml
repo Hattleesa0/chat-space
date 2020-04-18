@@ -1,0 +1,35 @@
+.chat_main
+  .chat_main__group-info
+    .room-info
+      .room-info__room-name
+        techcamp
+      .room-info__room-member
+        Member : david
+    =link_to "Edit", "#", class: "edit-btn"
+  .chat_main__message-list
+    .chat-content
+      .chat-content__user
+        .chat-content__user--333333
+          david
+        .chat-content__user--999999
+          2020/04/17(Fri) 18:00:00
+      .chat-content__text
+        wwwwwwwwww
+    .chat-content
+      .chat-content__user
+        .chat-content__user--333333
+          david
+        .chat-content__user--999999
+          2020/04/17(Fri) 18:30:00
+      .chat-content__text
+        ！！！
+  .chat_main__message-form
+    .chat-form
+      .chat-form__box
+        type a message
+        %label{class: "input-box__image"}
+          .far.fa-image
+          %input{type: "file"}
+        
+      .chat-form__send-btn
+        Send
