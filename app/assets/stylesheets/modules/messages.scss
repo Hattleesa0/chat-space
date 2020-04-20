@@ -36,7 +36,7 @@ $mainWhiteColor: #ffffff;
         margin-left: auto;
         margin-right: auto;
         &--setting{
-          padding-left: 5px;
+          padding-left: 10px;
           text-decoration: none;
           color: $mainWhiteColor;
           font-size: 0.85em;
@@ -79,7 +79,7 @@ $mainWhiteColor: #ffffff;
     background-color: $mainWhiteColor;
     border-bottom: thin solid #eeeeee;
     @include flex();
-    margin: 0 40px;
+    padding: 0 40px;
     .room-info{
       background-color: $mainWhiteColor;
       &__room-name{
