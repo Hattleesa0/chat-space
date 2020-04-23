@@ -2,34 +2,22 @@
   .chat_main__group-info
     .room-info
       .room-info__room-name
-        techcamp
+        = @group.name
       .room-info__room-member
-        Member : david
-    =link_to "Edit", "#", class: "edit-btn"
-  .chat_main__message-list
-    .chat-content
-      .chat-content__user
-        .chat-content__user--333333
-          david
-        .chat-content__user--999999
-          2020/04/17(Fri) 18:00:00
-      .chat-content__text
-        wwwwwwwwww
-    .chat-content
-      .chat-content__user
-        .chat-content__user--333333
-          david
-        .chat-content__user--999999
-          2020/04/17(Fri) 18:30:00
-      .chat-content__text
-        ！！！
+        Member :
+        - @group.users.each do |user|
+          = user.name
+    =link_to edit_group_path(@group.id), class: "edit-btn" do
+      Edit
+  .chat_main__messages-list
+    = render @messages
+
   .chat_main__message-form
-    .chat-form
-      .chat-form__box
-        type a message
-        %label{class: "input-box__image"}
-          .far.fa-image
-          %input{type: "file"}
-        
-      .chat-form__send-btn
-        Send
+    = form_for [@group, @message] do |f|
+      .chat-form-wrapper
+        = f.text_field :content, class: 'chat-form__box', placeholder: 'type a message'
+        .chat-form__image
+          = f.label :image, class: 'input-box__image' do
+            .far.fa-image
+            = f.file_field :image
+      = f.submit 'Send', class: 'chat-form__send-btn'

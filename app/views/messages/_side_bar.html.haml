@@ -1,5 +1,5 @@
 .side_bar
-  .side_bar__user
+  .side_bar__user-name
     .top-items
       .top-items__name
         = current_user.name
@@ -9,12 +9,12 @@
         = link_to edit_user_path(current_user.id) do
           = icon('fas', 'cog', class: 'top-items__icons--setting')
 
-  .side_bar__group    
+  .side_bar__group-list
     - current_user.groups.each do |group|
-      .group-space
-        = link_to "#", class: "group-space" do
-          .group-space__name
+      .group-box
+        = link_to group_messages_path(group) do
+          .group-box__name
             = group.name
-          .group-space__status
-            まだメッセージがありません
+          .group-box__message
+            = group.show_last_message
       
