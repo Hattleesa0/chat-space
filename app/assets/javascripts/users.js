@@ -31,10 +31,15 @@ $(function() {
   }
   $("#user-search-field").on("keyup", function() {
     let input = $("#user-search-field").val();
+    let members = $("input[name='group[user_ids][]']").map(function(){
+      return $(this).val();
+     });
+    let memberIds = members.get();
+
     $.ajax({
       type: "GET",
       url: "/users",
-      data: { keyword: input },
+      data: { keyword: input , ids: memberIds},
       dataType: "json"
     })
       .done(function(users) {
